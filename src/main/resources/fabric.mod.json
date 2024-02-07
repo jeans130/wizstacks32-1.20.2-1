@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "wizstacks32",
+	"version": "${version}",
+	"name": "wizstacks32",
+	"description": "Stack size is now 32!",
+	"authors": [
+		"Jeans!",
+		"CoreByte!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/jeans130"
+	},
+	"license": "MIT",
+	"icon": "assets/wizstacks32/icon.png",
+	"environment": "*",
+	"entrypoints": {},
+	"mixins": [
+		"wizstacks32.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.6",
+		"minecraft": "~1.20.2",
+		"java": ">=17"
+	},
+	"suggests": {}
+}
