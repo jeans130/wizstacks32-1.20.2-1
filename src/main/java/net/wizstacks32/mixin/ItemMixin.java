@@ -10,14 +10,4 @@ public class ItemMixin {
 	public final int getMaxCount() {
 		return 32;
 	}
-	@Mixin(JukeboxBlockEntity.class)
-	public class JukeboxBlockEntityMixin {
-		@Overwrite
-		public void setRecord(ItemStack record) {
-			if (record.getItem() instanceof MusicDiscItem) {
-				record.decrement(1);
-			}
-			super.setRecord(record);
-		}
-	}
 }
