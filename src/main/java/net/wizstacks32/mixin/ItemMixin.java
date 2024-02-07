@@ -2,7 +2,10 @@ package net.wizstacks32.mixin;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.block.entity.JukeboxBlockEntity;
 import net.minecraft.item.MusicDiscItem;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -12,11 +15,14 @@ public class ItemMixin {
 	public final int getMaxCount() {
 		return 32;
 	}
-	public int getMaxCount(ItemStack stack) {
-        if (stack.getItem() instanceof MusicDiscItem) {
-            return 1;
-        } else {
-            return stack.getItem().getMaxCount();
-        }
+	@Mixin(JukeboxBlockEntity.class)
+	public class JukeboxBlockEntityMixin {
+		@Overwrite
+		public void setRecord(ItemStack record) {
+			if (record.getItem() instanceof MusicDiscItem) {
+				record.decrement(1);
+			}
+			super.setRecord(record);
+		}
 	}
 }
