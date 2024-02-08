@@ -8,12 +8,12 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
 @Mixin(JukeboxBlockEntity.class)
-	public class JukeboxBlockEntityMixin {
-		@Overwrite
-		public void setRecord(ItemStack record) {
-			if (record.getItem() instanceof MusicDiscItem) {
-				record.decrement(1);
-			}
-			super.setRecord(record);
+public class JukeboxBlockEntityMixin {
+	@Overwrite
+	public void setRecord(ItemStack record) {
+		if (record.getItem() instanceof MusicDiscItem) {
+			record.decrement(1);
 		}
+		super.setRecord(record);
 	}
+}
